@@ -1,196 +1,437 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- SEO Meta Tags for better search engine optimization -->
+  <meta name="description" content="Atlas & Lens Photography - Professional wedding, engagement, editorial and lifestyle photography services. Capturing beautiful moments with emotion and artistry.">
+  <meta name="keywords" content="photography, wedding photographer, engagement photos, editorial photography, lifestyle photography">
+  <meta name="author" content="Atlas & Lens">
+  
+  <!-- Open Graph Meta Tags for social media sharing -->
+  <meta property="og:title" content="Atlas & Lens Photography">
+  <meta property="og:description" content="Professional photography services for weddings, engagements, editorial and lifestyle sessions.">
+  <meta property="og:type" content="website">
+  
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#f8f8f8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Atlas & Lens">
+  
+  <!-- Page Title -->
+  <title>Atlas & Lens - Professional Photography Services</title>
+  
+  <!-- Preload critical resources for better performance -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" as="style">
+  <link rel="preload" href="style.css" as="style">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  
   <!-- Bootstrap Styles -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <!-- Our local stylesheet -->
   <link href="style.css" rel="stylesheet" type="text/css" />
+  
+  <!-- RTL Language Support -->
+  <script>
+    // Detect RTL languages and set direction
+    function detectRTL() {
+      const userLang = navigator.language || navigator.userLanguage;
+      const rtlLanguages = ['ar', 'he', 'fa', 'ur', 'yi', 'iw', 'ji', 'ku', 'ps', 'sd'];
+      const langCode = userLang.split('-')[0];
+      
+      if (rtlLanguages.includes(langCode)) {
+        document.documentElement.setAttribute('dir', 'rtl');
+        document.documentElement.setAttribute('lang', userLang);
+      }
+      
+      // Also check for explicit RTL parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('dir') === 'rtl') {
+        document.documentElement.setAttribute('dir', 'rtl');
+      }
+    }
+    
+    // Run detection immediately
+    detectRTL();
+  </script>
 </head>
 
 <body>
+  <!-- Skip link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-expand-lg navbar-light" role="navigation" aria-label="Main navigation">
     <div class="container">
-      <a class="navbar-brand" href="#">Atlas & Lens</a>
+      <a class="navbar-brand" href="#" aria-label="Atlas & Lens Photography Home">Atlas & Lens</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation menu">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="#" aria-label="Go to Home page">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Portfolio</a>
+            <a class="nav-link" href="#" aria-label="View our Portfolio">Portfolio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#" aria-label="Learn About us">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Contact</a>
+            <a class="nav-link active" href="#" aria-current="page" aria-label="Contact us">Contact</a>
+          </li>
+          <!-- Language Toggle -->
+          <li class="nav-item">
+            <button class="nav-link btn btn-link language-toggle" onclick="toggleDirection()" aria-label="Toggle language direction">
+              <i class="bi bi-translate" aria-hidden="true"></i>
+              <span class="direction-text">عربي</span>
+            </button>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Testimonials Section -->
-  <div class="testimonials-section">
+  <!-- Main content wrapper -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+          <div class="col-lg-8">
+            <h1 id="hero-heading">
+              <span class="english-text">Capturing Life's Beautiful Moments</span>
+              <span class="arabic-text" style="display: none;">التقاط لحظات الحياة الجميلة</span>
+            </h1>
+            <p class="lead">
+              <span class="english-text">Professional photography services for weddings, engagements, editorial sessions, and lifestyle shoots. We tell your story through stunning, timeless imagery.</span>
+              <span class="arabic-text" style="display: none;">خدمات التصوير الاحترافية لحفلات الزفاف والخطوبة والجلسات التحريرية وتصوير نمط الحياة. نحن نحكي قصتك من خلال صور مذهلة وخالدة.</span>
+            </p>
+            <a href="#contact-heading" class="btn btn-primary">
+              <span class="english-text">Get In Touch</span>
+              <span class="arabic-text" style="display: none;">تواصل معنا</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h2 id="about-heading" class="section-title">About Atlas & Lens</h2>
+            <p class="about-text">
+              We are passionate photographers dedicated to capturing the essence of your most precious moments. 
+              With years of experience in wedding, engagement, editorial, and lifestyle photography, 
+              we create timeless images that tell your unique story with artistry and emotion.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <h2 id="testimonials-heading" class="section-title">What Our Clients Say</h2>
+        
+        <div class="testimonials-grid">
+          <!-- Testimonial 1 -->
+          <article class="testimonial-card">
+            <div class="testimonial-number" aria-hidden="true">01</div>
+            <div class="testimonial-content">
+              "The photos of our wedding are magnificent. Each moment was captured with so much emotion and beauty."
+            </div>
+            <div class="testimonial-author">
+              <img class="testimonial-avatar"
+                src="https://images.pexels.com/photos/265856/pexels-photo-265856.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                alt="Marie Dubois"
+                width="50"
+                height="50"
+                loading="lazy">
+              <div class="author-info">
+                <h5>Marie Dubois</h5>
+                <p>Paris, France</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonial 2 -->
+          <article class="testimonial-card">
+            <div class="testimonial-number" aria-hidden="true">02</div>
+            <div class="testimonial-content">
+              "The photos of our wedding captured moments that we didn't even know had happened. Exceptional work."
+            </div>
+            <div class="testimonial-author">
+              <img class="testimonial-avatar"
+                src="https://images.pexels.com/photos/265856/pexels-photo-265856.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                alt="Carlos and Sofia"
+                width="50"
+                height="50"
+                loading="lazy">
+              <div class="author-info">
+                <h5>Carlos & Sofia</h5>
+                <p>Barcelona, Spain</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonial 3 -->
+          <article class="testimonial-card">
+            <div class="testimonial-number" aria-hidden="true">03</div>
+            <div class="testimonial-content">
+              "Our event photoshoot was amazing. The photographer captured moments we didn't even know happened. Exceptional work."
+            </div>
+            <div class="testimonial-author">
+              <img class="testimonial-avatar"
+                src="https://images.pexels.com/photos/265856/pexels-photo-265856.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                alt="Fatima and Mohammed"
+                width="50"
+                height="50"
+                loading="lazy">
+              <div class="author-info">
+                <h5>Fatima & Mohammed</h5>
+                <p>Dubai, United Arab Emirates</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" aria-labelledby="contact-heading">
     <div class="container">
-      <h2 class="text-center mb-5">Client Testimonials</h2>
-      <div class="row testimonials-container">
-        <!-- Testimonial 1 -->
-        <div class="col-md-4 mb-4">
-          <div class="testimonial-card testimonial-1">
-            <div class="testimonial-number">Testimonial 1</div>
-            <div class="testimonial-image">
-              <img
-                src="https://images.pexels.com/photos/265856/pexels-photo-265856.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="contact-card">
+            <div class="card-header">
+              <h3 id="contact-heading">
+                <span class="english-text">Get In Touch</span>
+                <span class="arabic-text" style="display: none;">تواصل معنا</span>
+              </h3>
+              <p class="lead">
+                <span class="english-text">Ready to capture your special moments? Let's discuss your photography needs.</span>
+                <span class="arabic-text" style="display: none;">مستعد لالتقاط لحظاتك الخاصة؟ دعنا نناقش احتياجاتك التصويرية.</span>
+              </p>
             </div>
-            <div class="testimonial-content">
-              <p class="testimonial-text">"The photos of our wedding are magnificent. Each moment was captured
-                with so much emotion and beauty."</p>
-              <p class="testimonial-author">- Marie Dubois</p>
-              <p class="testimonial-location">Paris, France</p>
-            </div>
-          </div>
-        </div>
+            
+            <form class="contact-form" method="post" action="#" novalidate>
+              <fieldset class="contact-fieldset">
+                <legend class="contact-legend">Personal Information</legend>
 
-        <!-- Testimonial 2 -->
-        <div class="col-md-4 mb-4">
-          <div class="testimonial-card testimonial-2">
-            <div class="testimonial-number">Testimonial 2</div>
-            <div class="testimonial-content">
-              <div class="quote-icon mb-3">"</div>
-              <p class="testimonial-text">"The photos of our wedding captured moments that we didn't even know
-                had happened. Exceptional work."</p>
-              <p class="testimonial-author">- Carlos & Sofia</p>
-              <p class="testimonial-location">Barcelona, Spain</p>
-            </div>
-          </div>
-        </div>
+                <!-- Name input -->
+                <div class="form-group">
+                  <label for="name" class="form-label">Full Name * / الاسم الكامل *</label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name / أدخل اسمك الكامل" required aria-describedby="name-help">
+                  <div id="name-help" class="form-text">Please enter your full name / يرجى إدخال اسمك الكامل</div>
+                </div>
 
-        <!-- Testimonial 3 -->
-        <div class="col-md-4 mb-4">
-          <div class="testimonial-card testimonial-3">
-            <div class="testimonial-number">Testimonial 3</div>
-            <div class="testimonial-content">
-              <p class="testimonial-text">"Our event photoshoot was amazing. The photographer captured moments we didn't
-                even know happened. Exceptional work."</p>
-              <p class="testimonial-author">- Fatima & Mohammed</p>
-              <p class="testimonial-location">Dubai, United Arab Emirates</p>
-            </div>
-            <div class="testimonial-image">
-              <img
-                src="https://images.pexels.com/photos/265856/pexels-photo-265856.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+                <!-- Email input -->
+                <div class="form-group">
+                  <label for="email" class="form-label">Email Address * / البريد الإلكتروني *</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="example@email.com" required aria-describedby="email-help">
+                  <div id="email-help" class="form-text">We'll never share your email with anyone else. / لن نشارك بريدك الإلكتروني مع أي شخص آخر.</div>
+                </div>
+              </fieldset>
 
-  <!-- Contact Form Container -->
-  <section class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8 col-lg-6">
-        <!-- Contact Form -->
-        <div class="contact-form">
-          <h2 class="text-center mb-5">Reach out</h2>
-          <div class="form-group mb-4">
-            <input type="text" class="form-control" id="name" placeholder="Enter your full name *">
-          </div>
+              <fieldset class="contact-fieldset">
+                <legend class="contact-legend">Session Details</legend>
+                <!-- Session Type radio buttons -->
+                <div class="form-group">
+                  <label class="form-label">Session Type * / نوع الجلسة *</label>
+                  <div class="d-flex flex-wrap gap-3" role="radiogroup" aria-required="true">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="sessionType" id="wedding" value="Wedding" required>
+                      <label class="form-check-label" for="wedding">Wedding / زفاف</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="sessionType" id="engagement" value="Engagement">
+                      <label class="form-check-label" for="engagement">Engagement / خطوبة</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="sessionType" id="editorial" value="Editorial">
+                      <label class="form-check-label" for="editorial">Editorial / تحريري</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="sessionType" id="lifestyle" value="Lifestyle">
+                      <label class="form-check-label" for="lifestyle">Lifestyle / نمط الحياة</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="sessionType" id="other" value="Other">
+                      <label class="form-check-label" for="other">Other / أخرى</label>
+                    </div>
+                  </div>
+                </div>
 
-          <div class="form-group mb-4">
-            <input type="email" class="form-control" id="email" placeholder="example@email.com *">
-          </div>
+                <!-- Other session type input -->
+                <div class="form-group">
+                  <label for="otherInfo" class="form-label">If you selected 'Other', please describe your session type</label>
+                  <input type="text" class="form-control" id="otherInfo" name="otherInfo" placeholder="Describe your session type">
+                </div>
 
-          <div class="form-group mb-4">
-            <p class="small-heading">SESSION TYPE *</p>
-            <div class="radio-options">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="sessionType" id="wedding" value="Wedding">
-                <span class="radio-text">Wedding</span>
+                <!-- How did you hear about me? -->
+                <div class="form-group">
+                  <label for="hearAbout" class="form-label">How did you hear about me?</label>
+                  <select class="form-select form-control" id="hearAbout" name="hearAbout">
+                    <option selected disabled value="">Choose an option</option>
+                    <option value="google">Google</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="referral">Referral</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </fieldset>
+
+              <fieldset class="contact-fieldset">
+                <legend class="contact-legend">Your Message</legend>
+                
+                <!-- Message textarea -->
+                <div class="form-group">
+                  <label for="message" class="form-label">Tell us about your project * / أخبرنا عن مشروعك *</label>
+                  <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell me more about what you're looking for... / أخبرني المزيد عما تبحث عنه..." required aria-describedby="message-help"></textarea>
+                  <div id="message-help" class="form-text">Please describe your photography needs and vision / يرجى وصف احتياجاتك ورؤيتك التصويرية</div>
+                </div>
+              </fieldset>
+
+              <!-- Submit button -->
+              <div class="text-center">
+                <button type="submit" class="btn-submit">
+                  <i class="bi bi-send" aria-hidden="true"></i> Send Message
+                </button>
               </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="sessionType" id="engagement" value="Engagement">
-                <span class="radio-text">Engagement</span>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="sessionType" id="editorial" value="Editorial">
-                <span class="radio-text">Editorial</span>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="sessionType" id="lifestyle" value="Lifestyle">
-                <span class="radio-text">Lifestyle</span>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="sessionType" id="other" value="Other">
-                <span class="radio-text">Other</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group mb-4">
-            <input type="text" class="form-control" id="otherInfo" placeholder="Please describe your session type">
-          </div>
-
-          <div class="form-group mb-4">
-            <select class="form-select" id="hearAbout">
-              <option selected disabled>How did you hear about me?</option>
-              <option value="google">Google</option>
-              <option value="instagram">Instagram</option>
-              <option value="facebook">Facebook</option>
-              <option value="referral">Referral</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <div class="form-group mb-4">
-            <textarea class="form-control" id="message" rows="5"
-              placeholder="Tell me more about what you're looking for... *"></textarea>
-          </div>
-
-          <div class="text-center mt-4">
-            <button type="submit" class="btn btn-outline-dark"> <i class="bi bi-send"></i> </button>
+            </form>
           </div>
         </div>
       </div>
-    </div>
     </div>
   </section>
+  </main>
+  <!-- End of main content -->
 
   <!-- Footer  -->
-  <div class="mt-5 py-4 text-center footer">
+  <footer class="footer" role="contentinfo">
     <div class="container">
-      <p>&copy; <time datetime="2025">2025</time> Atlas & Lens. All rights reserved.</p>
+      <p>&copy; <time datetime="2025">2025</time> <a href="#" aria-label="Atlas & Lens Photography Home">Atlas & Lens Photography</a>. All rights reserved.</p>
     </div>
-  </div>
+  </footer>
 
-  <!-- Bootstrap Script -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap Script - defer for better performance -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
 
-  <!-- Form functionality Script -->
-  <script src="https://iigca.github.io/wd-ll/ll6.js"></script>
+  <!-- Form functionality Script - defer for better performance -->
+  <script src="https://iigca.github.io/wd-ll/ll6.js" defer></script>
 
   <!-- Google Translate Widget -->
-  <div id="google_translate_element" class="google-translate-container"></div>
+  <div id="google_translate_element" class="google-translate-container" aria-label="Website language translator"></div>
+  
+  <!-- RTL Language Support Script -->
   <script type="text/javascript">
+    // Enhanced RTL Language Detection and Toggle
+    function detectRTL() {
+      const userLang = navigator.language || navigator.userLanguage;
+      const rtlLanguages = ['ar', 'he', 'fa', 'ur', 'yi', 'iw', 'ji', 'ku', 'ps', 'sd'];
+      const langCode = userLang.split('-')[0];
+      
+      if (rtlLanguages.includes(langCode)) {
+        document.documentElement.setAttribute('dir', 'rtl');
+        document.documentElement.setAttribute('lang', userLang);
+        updateLanguageToggle();
+      }
+      
+      // Check for explicit RTL parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('dir') === 'rtl') {
+        document.documentElement.setAttribute('dir', 'rtl');
+        updateLanguageToggle();
+      }
+    }
+    
+    // Toggle language direction
+    function toggleDirection() {
+      const html = document.documentElement;
+      const currentDir = html.getAttribute('dir');
+      const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
+      
+      html.setAttribute('dir', newDir);
+      updateLanguageToggle();
+      toggleBilingualContent(newDir);
+      
+      // Store preference
+      localStorage.setItem('preferred-direction', newDir);
+      
+      // Update URL parameter for sharing
+      const url = new URL(window.location);
+      url.searchParams.set('dir', newDir);
+      window.history.replaceState({}, '', url);
+    }
+    
+    // Toggle bilingual content display
+    function toggleBilingualContent(direction) {
+      const englishElements = document.querySelectorAll('.english-text');
+      const arabicElements = document.querySelectorAll('.arabic-text');
+      
+      if (direction === 'rtl') {
+        englishElements.forEach(el => el.style.display = 'none');
+        arabicElements.forEach(el => el.style.display = 'inline');
+      } else {
+        englishElements.forEach(el => el.style.display = 'inline');
+        arabicElements.forEach(el => el.style.display = 'none');
+      }
+    }
+    
+    // Update language toggle button text
+    function updateLanguageToggle() {
+      const toggleButton = document.querySelector('.direction-text');
+      if (toggleButton) {
+        const currentDir = document.documentElement.getAttribute('dir');
+        toggleButton.textContent = currentDir === 'rtl' ? 'English' : 'عربي';
+      }
+    }
+    
+    // Load saved preference
+    function loadPreferredDirection() {
+      const saved = localStorage.getItem('preferred-direction');
+      if (saved) {
+        document.documentElement.setAttribute('dir', saved);
+        updateLanguageToggle();
+        toggleBilingualContent(saved);
+      }
+    }
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      loadPreferredDirection();
+      detectRTL();
+      updateLanguageToggle();
+      
+      // Initialize bilingual content based on current direction
+      const currentDir = document.documentElement.getAttribute('dir') || 'ltr';
+      toggleBilingualContent(currentDir);
+    });
+    
+    // Google Translate initialization
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
+        includedLanguages: 'en,ar,he,fa,ur,es,fr,de,it,pt,ru,zh,ja,ko',
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE
       }, 'google_translate_element');
     }
   </script>
+  
   <script type="text/javascript"
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
 </body>
 
 </html>
